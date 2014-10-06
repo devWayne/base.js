@@ -6,6 +6,13 @@ if (typeof exports !== 'undefined') {
 	if (typeof module !== 'undefined' && module.exports) {
 		exports = module.exports = _;
 	}
+	else if (typeof define === 'function' && define.cmd) {
+    define(function(require, exports, module) {
+      module.exports = exports = _;
+    }
+    else if (typeof define === 'function' && define.amd) {
+    define('enhance', [], _);
+  	}
 	exports._ = _;
 }
 
